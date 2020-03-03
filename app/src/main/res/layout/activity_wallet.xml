@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_blue"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_14sdp"
+            android:src="@drawable/back_icon" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_14sdp"
+            android:layout_marginRight="@dimen/_14sdp"
+            android:layout_marginBottom="@dimen/_24sdp"
+            android:background="@drawable/rounded_edit_text">
+
+            <TextView
+                android:id="@+id/txt_tittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/str_wallet_amount"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_20sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_tittle"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_wallet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:src="@drawable/wallet_img" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_28sdp"
+                    android:gravity="center"
+                    android:text="@string/str_amount_msg"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/_34sdp" />
+
+
+                <Button
+                    android:id="@+id/btn_redeem"
+                    android:layout_width="@dimen/_140sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:background="@drawable/rounded_blue_button"
+                    android:onClick="onClick"
+                    android:text="@string/str_redeem"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_16sdp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_40sdp"
+                android:gravity="center"
+                android:lineSpacingExtra="9sp"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_16sdp"
+                android:text="Minimum amount ₹600" />
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

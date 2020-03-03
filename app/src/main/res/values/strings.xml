@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">PilotApplication</string>
+    <string name="loading">Loading...</string>
+    <string name="ok">Ok</string>
+    <string name="default_error">Server error</string>
+
+    <!--Login screen messages-->
+    <string name="str_phone_hint">Phone number</string>
+    <string name="str_password_hint">Password</string>
+    <string name="str_login">Login</string>
+    <string name="str_call">Call Us</string>
+    <string name="str_mail">Mail Us</string>
+    <string name="rate_us"><u>Rate Us</u></string>
+    <string name="network_not_available_mg">Please check your internet connection.</string>
+    <string name="forgot_pwd"><u>Forgot Password ?</u></string>
+    <string name="dont_hv_acct">Don\'t have an account ?</string>
+    <string name="str_full_name">Full name</string>
+    <string name="str_male">Male</string>
+    <string name="str_female">Female</string>
+    <string name="str_email_hint">Email</string>
+    <string name="str_dob">Date of birth</string>
+    <string name="str_hint_class">class</string>
+    <string name="str_phone_number">Phone No.</string>
+    <string name="str_invite_code">Invite Code</string>
+    <string name="str_city">City</string>
+    <string name="str_state">State</string>
+    <string name="str_submit">Submit</string>
+    <string name="str_otp">Enter OTP</string>
+    <string name="str_resend_otp"><u>Resend OTP</u></string>
+    <string name="str_change_phone_number"><u>Change Phone No.</u></string>
+    <string name="str_confirm_password_hint">Confirm Password</string>
+
+    <!--Screen tittles......-->
+    <string name="forgot_tittle">Forgot Password</string>
+    <string name="signup_tittle">Sign Up</string>
+    <string name="str_signup"><u>Sign up</u></string>
+    <string name="otp_tittle">OTP Verification</string>
+    <string name="open">Open Drawer</string>
+    <string name="close">Close Drawer</string>
+    <string name="need_help_message">Sit back and relax.\n Now tell us what we can do for you</string>
+    <string name="err_phone_empty">Please enter phone number.</string>
+    <string name="err_phone_invalid">Please enter valid phone number.</string>
+    <string name="err_password_empty">Please enter password.</string>
+    <string name="err_full_name">Please enter full name</string>
+    <string name="err_email_empty">Please enter email address</string>
+    <string name="err_email_invalid">Please enter valid email address.</string>
+    <string name="err_dob_empty">Please fill you date of birth</string>
+    <string name="err_otp_empty">Please enter your otp.</string>
+    <string name="err_confirm_password_empty">Please enter your confirm password</string>
+    <string name="err_password_not_match">Password and confirm password doesn\'t match. </string>
+
+    <!--..............Drawer tittles.......-->
+
+    <string-array name="arr_nav">
+        <item name="str_favorited">Favourite Video</item>
+        <item name="str_downloaded_video">Downloaded videos</item>
+        <item name="str_wallet">Wallet</item>
+        <item name="str_refer_earn">Refer and Earn</item>
+        <item name="str_notifications">Notifications</item>
+        <item name="str_need_help">Need Help ?</item>
+
+        <item name="str_about_us">About us</item>
+        <item name="str_rate_us">Rate Us</item>
+        <item name="str_logout">Logout</item>
+    </string-array>
+
+
+    <string name="str_favorited">Favourite Video</string>
+    <string name="str_downloaded_video">Downloaded videos</string>
+    <string name="str_wallet">Wallet</string>
+    <string name="str_refer_earn">Refer and Earn</string>
+    <string name="str_notifications">Notifications</string>
+    <string name="str_need_help">Need Help ?</string>
+    <string name="str_about_us">About us</string>
+    <string name="str_rate_us">Rate Us</string>
+    <string name="str_logout">Logout</string>
+    <string name="str_download_video">Download Videos</string>
+    <string name="str_fav_video">Favourite Videos</string>
+    <string name="str_clear_all">Clear All</string>
+    <string name="str_demo_videos">Demo Videos</string>
+
+    <string name="str_like">Like</string>
+    <string name="str_favorite">Favourite</string>
+    <string name="str_notes">Notes</string>
+    <string name="str_assesments">Assessments</string>
+    <string name="str_downloads">Downloads</string>
+    <string name="str_save_video">Saved Videos</string>
+    <string name="str_no_download_video">You don\'t have downloaded videos yet.</string>
+    <string name="str_downloaded_videos">Downloaded Videos</string>
+    <string name="delete_all_video">Are you sure want to delete all videos.</string>
+    <string name="str_delete_single_video">Are you sure want to delete this video.</string>
+
+    <string name="str_show_downloads">Show Downloads</string>
+    <string name="str_refer_msg">Easily share and earn \n 50 or more</string>
+    <string name="str_refer_tittle"><![CDATA[Refer & Earn]]></string>
+    <string name="str_wallet_msg">You can use your credit or debit card via \n Google Pay and Paytm</string>
+    <string name="str_redeem_amount">Redeem Amount</string>
+
+    <string name="str_need_help_tittle">Need Help</string>
+    <string name="msg_token_fmt" translatable="false">InstanceID Token: %s</string>
+
+    <string name="str_transfer_bank_detail">Transfer Fund to Account</string>
+    <string name="str_account_holder_name">Account Holder Name</string>
+    <string name="str_account_no">Account No.</string>
+    <string name="str_ifsc">IFSC</string>
+    <string name="str_amount">Amount</string>
+    <string name="str_reedem_amount_tittle">Redeem Amount</string>
+    <string name="str_wallet_amount">Wallet Amount</string>
+    <string name="str_redeem">Redeem</string>
+    <string name="str_amount_msg">₹ 600.00</string>
+
+    <string name="str_tutorial_first_msg">More than 1600 video or lectures, Notes and Assesssments to enhance your education techniques.</string>
+    <string name="str_tutorial_second_msg">Here you can easily Sign in/up to learn anytime anywhere.</string>
+    <string name="str_tutorial_third_msg">Just tap and start learning experience.</string>
+    <string name="str_tutorial_fourth_msg">Here you can find more useful feature to track your progress.</string>
+    <string name="str_tutorial_fifth_msg">Call and E-mail support for your any application related queries.</string>
+    <string name="str_tut_one_tittle">Mr. Bhartiya Education</string>
+    <string name="str_tut_two_tittle">Easy Login</string>
+    <string name="str_tut_third_tittle">Convenient Design</string>
+    <string name="str_tut_four_tittle">Supportive Features</string>
+    <string name="str_tut_fifth_tittle">Support</string>
+    <string name="str_class">Class</string>
+    <string name="str_username">UserName</string>
+</resources>

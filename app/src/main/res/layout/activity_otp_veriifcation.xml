@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/toolbar_without_search"
+        android:id="@+id/layout_otp">
+
+    </include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="@dimen/_60sdp"
+        android:layout_marginRight="@dimen/_60sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:lineSpacingExtra="@dimen/_4sdp"
+            android:text="Your Otp has been sent on  \n +91 ************ successfully" />
+
+        <EditText
+            android:id="@+id/ed_otp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/rounded_edit_text"
+            android:drawableLeft="@drawable/phone_icon"
+            android:drawablePadding="@dimen/_12sdp"
+            android:hint="@string/str_otp"
+            android:padding="@dimen/_8sdp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:maxLength="4"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="right"
+            android:text="@string/str_resend_otp"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/btn_opt"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/rounded_blue_button"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/str_submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="@string/str_change_phone_number"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

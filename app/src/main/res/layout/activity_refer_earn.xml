@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blue_bg"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar_refer"
+        layout="@layout/toolbar_without_search" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:background="@drawable/refre_round_layout"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtTittle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:gravity="center"
+                android:text="@string/str_refer_msg"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_20sdp" />
+
+            <ImageView
+                android:id="@+id/img_refer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtTittle"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:src="@drawable/refer_img" />
+
+            <TextView
+                android:id="@+id/txt_refer_code"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img_refer"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/round_black_edit_text"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:padding="@dimen/_8sdp"
+                android:textSize="@dimen/_18sdp"
+                android:singleLine="true"
+                android:textColor="@color/black" />
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_below="@+id/txt_refer_code"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/share_icon" />
+
+            <TextView
+                android:layout_below="@+id/img_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="Share"
+                android:textColor="@color/black"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

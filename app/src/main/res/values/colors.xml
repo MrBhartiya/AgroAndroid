@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008dd1</color>
+    <color name="colorPrimaryDark">#008dd1</color>
+    <color name="colorAccent">#008dd1</color>
+    <color name="toolbarcolor">#80008dd1</color>
+    <color name="hintColor">#80008dd1</color>
+    <color name="white">#ffffff</color>
+    <color name="grey_color">#D8D8D8</color>
+    <color name="demo_background_color">#404040</color>
+    <color name="black">#000000</color>
+    <color name="text_color">#404040</color>
+    <color name="correct">#196f3d</color>
+    <color name="wrong">#c0392b</color>
+    <color name="skipped">#21618c</color>
+</resources>

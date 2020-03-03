@@ -1,0 +1,46 @@
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_top"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@android:color/transparent"
+    android:minHeight="?attr/actionBarSize">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/toolbar_left_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/back_icon"
+            android:onClick="onClick"></ImageView>
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_toLeftOf="@id/toolbar_search"
+            android:layout_toRightOf="@id/toolbar_left_icon"
+            android:gravity="center"
+            android:maxLength="25"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/toolbar_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/_5sdp"
+            app:closeIcon="@drawable/ic_clear"
+            app:searchHintIcon="@drawable/ic_search_hint"
+            app:searchIcon="@drawable/search_icon"></androidx.appcompat.widget.SearchView>
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_fav_video"
+        android:title="@string/str_favorited" />
+    <item
+        android:id="@+id/nav_downloaded_video"
+        android:title="@string/str_downloaded_video" />
+    <item
+        android:id="@+id/nav_wallet"
+        android:title="@string/str_wallet" />
+    <item
+        android:id="@+id/nav_refer_earn"
+        android:title="@string/str_refer_earn" />
+    <item
+        android:id="@+id/nav_notification"
+        android:title="@string/str_notifications" />
+    <item
+        android:id="@+id/nav_rate_us"
+        android:title="@string/str_rate_us" />
+    <item
+        android:id="@+id/nav_need_help"
+        android:title="@string/str_need_help" />
+    <item
+        android:id="@+id/nav_about_us"
+        android:title="@string/str_about_us" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="@string/str_logout" />
+
+
+</menu>
