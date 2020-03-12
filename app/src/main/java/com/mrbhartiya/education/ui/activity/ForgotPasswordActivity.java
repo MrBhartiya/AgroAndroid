@@ -23,7 +23,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class ForgotPasswordActivity extends Activity implements View.OnClickListener {
-    private TextView txtTittle;
+    private TextView txtTittle,txt_mobilemsg;
     private Button btnSubmit;
     private ImageView btnBack;
     private EditText ed_otp, ed_Password, ed_Confirm_Password;
@@ -41,6 +41,10 @@ public class ForgotPasswordActivity extends Activity implements View.OnClickList
     private void initializeView() {
         txtTittle = findViewById(R.id.toolbar).findViewById(R.id.toolbar_title);
         txtTittle.setText(getResources().getString(R.string.forgot_tittle));
+        txt_mobilemsg=findViewById(R.id.txt_mobilemsg);
+        txt_mobilemsg.setText("Your OTP has been sent on\n" +
+                "+91 ********** please enter OTP to\n" +
+                "reset your password");
         btnBack = findViewById(R.id.toolbar).findViewById(R.id.toolbar_left_icon);
         btnBack.setOnClickListener(this);
         ed_otp = findViewById(R.id.ed_otp);
@@ -82,8 +86,8 @@ public class ForgotPasswordActivity extends Activity implements View.OnClickList
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         WeakHashMap<String, String> param = new WeakHashMap<>();
-        param.put("contact_no", contactNo);
-        param.put("new_password", ed_Password.getText().toString());
+        param.put("mobile_no", contactNo);
+        param.put("password", ed_Password.getText().toString());
         param.put("otp", String.valueOf(otp));
         ApiService apiService = RetrofitClient.createRetrofitService(ApiService.class);
         Call<UserModel> call = apiService.performForgotPasswordWithDetail(param);
@@ -91,7 +95,7 @@ public class ForgotPasswordActivity extends Activity implements View.OnClickList
             @Override
             public void onResponse(Call<UserModel> call, retrofit2.Response<UserModel> response) {
                 progressDialog.dismiss();
-                if (response.code() == 200) {
+                if (response.body().getStatus_code()== 200) {
                     if (response.body().isStatus()) {
 
                         startLoginActivity();

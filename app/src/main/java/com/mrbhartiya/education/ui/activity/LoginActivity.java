@@ -67,7 +67,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(new Intent(LoginActivity.this, SignUpActivity.class));
                 break;
             case R.id.txt_forgot_password:
-                if (!TextUtils.isEmpty(mPhoneNo.getText().toString().trim())) {
+                startActivity(new Intent(this, FirstForgotPasswordActivity.class));//.putExtra("otp", body.getData().getOtp()).putExtra("contact_no", body.getData().getContact_no()));
+
+                /*if (!TextUtils.isEmpty(mPhoneNo.getText().toString().trim())) {
                     if (SystemUtility.isConnectingToInternet(LoginActivity.this))
                         performForgotPassword();
                     else
@@ -75,13 +77,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
                 } else {
                     SystemUtility.showAlert(this, getResources().getString(R.string.app_name), getResources().getString(R.string.err_phone_empty));
-                }
+                }*/
 
 
         }
     }
 
-    private void performForgotPassword() {
+  /*  private void performForgotPassword() {
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Loading...");
@@ -113,7 +115,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 Toast.makeText(LoginActivity.this, "Call Failed", Toast.LENGTH_SHORT).show();
             }
         });
-    }
+    }*/
 
     private void onForgotSuccess(UserModel body) {
         startActivity(new Intent(this, ForgotPasswordActivity.class));//.putExtra("otp", body.getData().getOtp()).putExtra("contact_no", body.getData().getContact_no()));

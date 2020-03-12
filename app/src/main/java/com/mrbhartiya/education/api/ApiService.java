@@ -10,6 +10,7 @@ import com.mrbhartiya.education.model.SignupModel;
 import com.mrbhartiya.education.model.StatesModel;
 import com.mrbhartiya.education.model.TopicModel;
 import com.mrbhartiya.education.model.UserModel;
+import com.mrbhartiya.education.model.UserModelSec;
 import com.mrbhartiya.education.model.VideoOperation;
 import com.mrbhartiya.education.utility.Constant;
 import com.mrbhartiya.education.utility.PreferenceHelper;
@@ -39,7 +40,7 @@ public interface ApiService {
     @POST("student/registration")
     Call<SignupModel> performSignup(@Body WeakHashMap<String, String> userDetails);
 
-    @POST("VerifyOTP")
+    @POST("student/otp/verify")
     Call<UserModel> performOTPVerification(@Body WeakHashMap<String, String> userDetails);
 
     @POST("student/login")
@@ -80,10 +81,10 @@ public interface ApiService {
     @POST("assessment")
     Call<AssessmentModel> performResultOperation(@Body WeakHashMap<String, String> param);
 
-    @GET("forgotPassword")
-    Call<UserModel> performForgotPassword(@Query("contact_no") String userClass);
+    @POST("student/forgot/password")
+    Call<UserModelSec> performForgotPassword(@Body WeakHashMap<String, String> userDetails);
 
-    @PUT("forgotPassword")
+    @PUT("student/forgot/password/verify")
     Call<UserModel> performForgotPasswordWithDetail(@Body WeakHashMap<String, String> userDetails);
 
 }

@@ -81,7 +81,7 @@ public class OTPVerificationActivity extends BaseActivity {
         progressDialog.show();
         WeakHashMap<String, String> param = new WeakHashMap<>();
         param.put("otp", mOTP.getText().toString());
-        param.put("contact_no", contactNo);
+        param.put("mobile_no", contactNo);
         ApiService apiService = RetrofitClient.createRetrofitService(ApiService.class);
         Call<UserModel> call = apiService.performOTPVerification(param);
         call.enqueue(new Callback<UserModel>() {

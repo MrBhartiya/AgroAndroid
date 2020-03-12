@@ -39,7 +39,7 @@
             android:padding="@dimen/_8sdp"
             android:layout_gravity="center"
             android:gravity="center"
-            android:maxLength="4"
+            android:maxLength="6"
             android:singleLine="true" />
 
         <TextView
