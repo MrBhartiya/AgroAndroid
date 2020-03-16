@@ -179,6 +179,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
                     case R.id.nav_refer_earn:
                         startActivity(new Intent(HomeActivity.this, ReferEarnActivity.class));
                         break;
+                    case R.id.nav_about_us:
+                        startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
+
+                        break;
+
                     case R.id.nav_wallet:
                         startActivity(new Intent(HomeActivity.this, WalletActivity.class));
                         break;

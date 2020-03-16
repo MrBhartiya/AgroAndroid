@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mrbhartiya.education.R;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 import com.universalvideoview.UniversalMediaController;
 import com.universalvideoview.UniversalVideoView;
 
@@ -18,7 +19,7 @@ public class VideoPlayer extends AppCompatActivity implements UniversalVideoView
 
     private static final String TAG = "MainActivity";
     private static final String SEEK_POSITION_KEY = "SEEK_POSITION_KEY";
-    private static final String VIDEO_URL = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+    private static  String VIDEO_URL = "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
 
     UniversalVideoView mVideoView;
     UniversalMediaController mMediaController;
@@ -46,7 +47,7 @@ public class VideoPlayer extends AppCompatActivity implements UniversalVideoView
         mStart = (TextView) findViewById(R.id.start);
 
         Log.d(TAG, "onCompletion position " + mSeekPosition);
-
+VIDEO_URL= PreferenceHelper.getBucketUrl()+getIntent().getStringExtra("url");
 
 //        mStart.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -91,7 +92,9 @@ public class VideoPlayer extends AppCompatActivity implements UniversalVideoView
                 videoLayoutParams.height = cachedHeight;
                 mVideoLayout.setLayoutParams(videoLayoutParams);
                 mVideoView.setVideoPath(VIDEO_URL);
+
                 mVideoView.requestFocus();
+                mVideoView.seekTo(1);
 
             }
         });

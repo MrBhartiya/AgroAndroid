@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.HomeModel;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,7 +40,8 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.MyViewHo
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         holder.mSubjectText.setText(subjectList.get(position).getSubject_name());
-        Picasso.get().load(subjectList.get(position).getIcons()).into(holder.mSubjectImage);
+        String path=PreferenceHelper.getBucketUrl() +subjectList.get(position).getIcons();
+        Picasso.get().load(path).into(holder.mSubjectImage);
         holder.linear_subject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

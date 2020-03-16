@@ -46,6 +46,7 @@ public class FavouriteVideoActivity extends BaseActivity implements FavouriteVid
         }
         Toolbar toolbar = findViewById(R.id.toolbar);
         recycleFavourite = findViewById(R.id.recycle_favourite);
+
         recycleFavourite.setLayoutManager(new LinearLayoutManager(this));
         recycleFavourite.setAdapter(new FavouriteVideoAdapter(arrFavData, this, this));
         txtTittle = toolbar.findViewById(R.id.toolbar_title);
@@ -87,13 +88,13 @@ public class FavouriteVideoActivity extends BaseActivity implements FavouriteVid
     public void onItemClickListener(int position) {
         Intent intent = new Intent(this, VideoDiscription.class);
         intent.putExtra("id", arrFavData.get(position).getChapter_id());
-        intent.putExtra("url", arrFavData.get(position).getVideo_url());
-        intent.putExtra("description", arrFavData.get(position).getDescription());
+        intent.putExtra("url", arrFavData.get(position).getVideo().getVideo_url());
+        intent.putExtra("description", arrFavData.get(position).getVideo().getVideo_description());
         intent.putExtra("likes", arrFavData.get(position).getVideo_like());
         intent.putExtra("thumbnail", arrFavData.get(position).getThumbnail());
-        intent.putExtra("notes_url", arrFavData.get(position).getVideo_notes_url());
-        intent.putExtra("video_name", arrFavData.get(position).getVideo_name());
-        intent.putExtra("video_id", arrFavData.get(position).getVideo_id());
+        intent.putExtra("notes_url", arrFavData.get(position).getVideo().getDocument_url());
+        intent.putExtra("video_name", arrFavData.get(position).getVideo().getTitle());
+        intent.putExtra("video_id", arrFavData.get(position).getVideo().getVideo_id());
         intent.putExtra("isFavourited", true);
         startActivity(intent);
     }

@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Mr Bhartiya</string>
     <string name="loading">Loading...</string>
+    <string name="str_mtbhartiyaedu">Mr. Bhartiya Education</string>
     <string name="ok">Ok</string>
     <string name="default_error">Server error</string>
-
+<string name="txt_aboutusdetail">Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum \n \n Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum \n \n Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</string>
     <!--Login screen messages-->
     <string name="str_phone_hint">Phone number</string>
     <string name="str_password_hint">Password</string>

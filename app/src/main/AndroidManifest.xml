@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".PilotApplication"
@@ -19,7 +20,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="false">
-        <activity android:name=".ui.activity.FirstForgotPasswordActivity"></activity>
+        <activity android:name=".ui.activity.AboutUsActivity"></activity>
+        <activity android:name=".ui.activity.FirstForgotPasswordActivity" />
         <activity
             android:name=".ui.activity.HomeActivity"
             android:screenOrientation="portrait" />
@@ -95,10 +97,10 @@
 
         <activity
             android:name=".ui.activity.EditProfileActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.RedeemActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.BankDetailsActivity"
             android:screenOrientation="portrait" />

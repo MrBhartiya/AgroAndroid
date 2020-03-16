@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.HomeModel;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -38,7 +39,8 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         //holder.mSubjectText.setText(favouriteList.get(position).get());
-        Picasso.get().load(favouriteList.get(position).getThumbnail()).into(holder.mSubjectImage);
+        String path=PreferenceHelper.getBucketUrl()+favouriteList.get(position).getVideo().getThumbnail();
+        Picasso.get().load(PreferenceHelper.getBucketUrl()+favouriteList.get(position).getVideo().getThumbnail()).fit().into(holder.mSubjectImage);
         holder.linear_subject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -8,12 +8,13 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 
 import com.mrbhartiya.education.R;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 
 
 public class PDFViewActivity extends BaseActivity {
     String url = "";
     String pdf = "http://www.adobe.com/devnet/acrobat/pdfs/pdf_open_parameters.pdf";
-
+    String path;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +31,9 @@ public class PDFViewActivity extends BaseActivity {
         webview.setWebViewClient(new WebViewClient());
         webSetting.setJavaScriptEnabled(true);
         String myPdfUrl = "http://example.com/awesome.pdf";
-        String path = "http://docs.google.com/gview?embedded=true&url=" + url;
-        webview.loadUrl("javascript:(function() { " +
-                "document.querySelector('[role=\"toolbar\"]').remove();})()");
+         path = PreferenceHelper.getBucketUrl() + url;
+       /* webview.loadUrl("javascript:(function() { " +
+                "document.querySelector('[role=\"toolbar\"]').remove();})()");*/
         webview.loadUrl(path);
         webview.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -59,17 +60,18 @@ public class PDFViewActivity extends BaseActivity {
 
             // TODO Auto-generated method stub
             super.onPageStarted(view, url, favicon);
-            view.loadUrl("javascript:(function() { " +
-                    "document.querySelector('[role=\"toolbar\"]').remove();})()");
+           /* view.loadUrl("javascript:(function() { " +
+                    "document.querySelector('[role=\"toolbar\"]').remove();})()");*/
+           view.loadUrl(path);
         }
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
 
             // TODO Auto-generated method stub
-            view.loadUrl("javascript:(function() { " +
-                    "document.querySelector('[role=\"toolbar\"]').remove();})()");
-            view.loadUrl(url);
+            /*view.loadUrl("javascript:(function() { " +
+                    "document.querySelector('[role=\"toolbar\"]').remove();})()");*/
+            view.loadUrl(path);
             return true;
         }
 
@@ -79,8 +81,9 @@ public class PDFViewActivity extends BaseActivity {
             // TODO Auto-generated method stub
 
             super.onPageFinished(view, url);
-            view.loadUrl("javascript:(function() { " +
-                    "document.querySelector('[role=\"toolbar\"]').remove();})()");
+           /* view.loadUrl("javascript:(function() { " +
+                    "document.querySelector('[role=\"toolbar\"]').remove();})()");*/
+           view.loadUrl(path);
         }
     }
 }

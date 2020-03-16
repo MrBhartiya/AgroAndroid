@@ -38,8 +38,8 @@ public class FavouriteVideoAdapter extends RecyclerView.Adapter<FavouriteVideoAd
 
     @Override
     public void onBindViewHolder(@NonNull FavouriteVideoAdapter.MyViewHolder holder, final int position) {
-        holder.mItemName.setText(chapterList.get(position).getVideo_name());
-        holder.mItemDesc.setText(chapterList.get(position).getDescription());
+        holder.mItemName.setText(chapterList.get(position).getVideo().getTitle());
+        holder.mItemDesc.setText(chapterList.get(position).getVideo().getVideo_description());
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

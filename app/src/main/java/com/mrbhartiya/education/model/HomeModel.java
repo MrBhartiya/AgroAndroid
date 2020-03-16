@@ -664,11 +664,21 @@ public class HomeModel {
                 }
             };
             private String chapter_id;
-            private String video_name;
+            private String title;
             private String Video_url;
             private String video_notes_url;
             private int video_like;
             private String thumbnail;
+            private FavouriteVideosBeanVideo video;
+
+            public FavouriteVideosBeanVideo getVideo() {
+                return video;
+            }
+
+            public void setVideo(FavouriteVideosBeanVideo video) {
+                this.video = video;
+            }
+
             /**
              * video_id : MRV006
              * chapter_id : MRC002
@@ -692,6 +702,16 @@ public class HomeModel {
             private boolean delete_flag;
             private int isdemovideo;
 
+            public int getUser_id() {
+                return user_id;
+            }
+
+            public void setUser_id(int user_id) {
+                this.user_id = user_id;
+            }
+
+            private int user_id;
+
             public String getVideo_id() {
                 return video_id;
             }
@@ -709,11 +729,11 @@ public class HomeModel {
             }
 
             public String getVideo_name() {
-                return video_name;
+                return title;
             }
 
             public void setVideo_name(String video_name) {
-                this.video_name = video_name;
+                this.title = video_name;
             }
 
             public String getVideo_url() {
@@ -795,7 +815,7 @@ public class HomeModel {
             protected FavouriteVideosBean(Parcel in) {
                 this.video_id = in.readString();
                 this.chapter_id = in.readString();
-                this.video_name = in.readString();
+                this.title = in.readString();
                 this.Video_url = in.readString();
                 this.video_notes_url = in.readString();
                 this.video_like = in.readInt();
@@ -806,13 +826,16 @@ public class HomeModel {
                 this.updated_timestamp = in.readString();
                 this.delete_flag = in.readByte() != 0;
                 this.user_name = in.readString();
+                this.user_id=in.readInt();
+                this.video=in.readParcelable(FavouriteVideosBeanVideo.class.getClassLoader());
+
             }
 
             @Override
             public void writeToParcel(Parcel dest, int flags) {
                 dest.writeString(this.video_id);
                 dest.writeString(this.chapter_id);
-                dest.writeString(this.video_name);
+                dest.writeString(this.title);
                 dest.writeString(this.Video_url);
                 dest.writeString(this.video_notes_url);
                 dest.writeInt(this.video_like);
@@ -823,6 +846,8 @@ public class HomeModel {
                 dest.writeString(this.updated_timestamp);
                 dest.writeByte(this.delete_flag ? (byte) 1 : (byte) 0);
                 dest.writeString(this.user_name);
+                dest.writeInt(this.user_id);
+                dest.writeParcelable(this.video,flags);
             }
 
             public int getIsdemovideo() {
@@ -832,6 +857,179 @@ public class HomeModel {
             public void setIsdemovideo(int isdemovideo) {
                 this.isdemovideo = isdemovideo;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+        }
+        public static class FavouriteVideosBeanVideo implements Parcelable {
+            public static final Parcelable.Creator<FavouriteVideosBeanVideo> CREATOR = new Parcelable.Creator<FavouriteVideosBeanVideo>() {
+                @Override
+                public FavouriteVideosBeanVideo createFromParcel(Parcel source) {
+                    return new FavouriteVideosBeanVideo(source);
+                }
+
+                @Override
+                public FavouriteVideosBeanVideo[] newArray(int size) {
+                    return new FavouriteVideosBeanVideo[size];
+                }
+            };
+
+
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public String getVideo_id() {
+                return video_id;
+            }
+
+            public void setVideo_id(String video_id) {
+                this.video_id = video_id;
+            }
+
+            public int getTopic_id() {
+                return topic_id;
+            }
+
+            public void setTopic_id(int topic_id) {
+                this.topic_id = topic_id;
+            }
+
+            public int getTeacher_id() {
+                return teacher_id;
+            }
+
+            public void setTeacher_id(int teacher_id) {
+                this.teacher_id = teacher_id;
+            }
+
+            public String getTitle() {
+                return title;
+            }
+
+            public void setTitle(String title) {
+                this.title = title;
+            }
+
+            public String getType() {
+                return type;
+            }
+
+            public void setType(String type) {
+                this.type = type;
+            }
+
+            public String getVideo_url() {
+                return video_url;
+            }
+
+            public void setVideo_url(String video_url) {
+                this.video_url = video_url;
+            }
+
+            public String getDocument_url() {
+                return document_url;
+            }
+
+            public void setDocument_url(String document_url) {
+                this.document_url = document_url;
+            }
+
+            public String getVideo_description() {
+                return video_description;
+            }
+
+            public void setVideo_description(String video_description) {
+                this.video_description = video_description;
+            }
+
+            public String getDocument_description() {
+                return document_description;
+            }
+
+            public void setDocument_description(String document_description) {
+                this.document_description = document_description;
+            }
+
+            private  int id;
+private String video_id;
+private  int topic_id;
+private  int teacher_id;
+private String title;
+private String type;
+private String video_url;
+private String document_url;
+private String video_description;
+private String document_description;
+private String thumbnail;
+
+            public String getThumbnail() {
+                return thumbnail;
+            }
+
+            public void setThumbnail(String thumbnail) {
+                this.thumbnail = thumbnail;
+            }
+
+            /**
+             * video_id : MRV006
+             * chapter_id : MRC002
+             * video_name : Introduction
+             * Video_url : https://mrb-data.s3.ap-south-1.amazonaws.com/videos/1.Introduction.mp4
+             * video_notes_url : https://mrb-data.s3.ap-south-1.amazonaws.com/notes/1.Introduction.pdf
+             * video_like : 101
+             * thumbnail : https://mrb-data.s3.ap-south-1.amazonaws.com/videos/list_video_thumbnail.png
+             * isdemovideo : 1
+             * description : demo description
+             * created_timestamp : 1575435564
+             * updated_timestamp : 1575435564
+             * delete_flag : false
+             * user_name : Rohit Kumar
+             */
+
+
+
+
+
+            protected FavouriteVideosBeanVideo(Parcel in) {
+                this.id = in.readInt();
+                this.video_id = in.readString();
+                this.topic_id = in.readInt();
+                this.teacher_id = in.readInt();
+                this.title = in.readString();
+                this.type = in.readString();
+                this.video_url = in.readString();
+                this.document_url = in.readString();
+                this.video_description = in.readString();
+                this.document_description = in.readString();
+                this.thumbnail = in.readString();
+
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeInt(this.id);
+                dest.writeString(this.video_id);
+                dest.writeInt(this.topic_id);
+                dest.writeInt(this.teacher_id);
+                dest.writeString(this.title);
+                dest.writeString(this.type);
+                dest.writeString(this.video_url);
+                dest.writeString(this.document_url);
+                dest.writeString(this.video_description);
+                dest.writeString(this.document_description);
+                dest.writeString(this.thumbnail);
+
+            }
+
+
 
             @Override
             public int describeContents() {

@@ -54,7 +54,7 @@
                     android:src="@drawable/phone_help" />
 
                 <Button
-                    android:id="@+id/btn_login"
+                    android:id="@+id/btn_callus"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -88,6 +88,7 @@
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/rounded_blue_button"
                     android:text="Email"
+                    android:id="@+id/btn_mail"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp" />
