@@ -2,6 +2,7 @@ package com.mrbhartiya.education.api;
 
 import com.mrbhartiya.education.api.response.BaseResponse;
 import com.mrbhartiya.education.model.AssessmentModel;
+import com.mrbhartiya.education.model.BaseModel;
 import com.mrbhartiya.education.model.ChapterModel;
 import com.mrbhartiya.education.model.CitiesModel;
 import com.mrbhartiya.education.model.HomeModel;
@@ -17,14 +18,17 @@ import com.mrbhartiya.education.utility.PreferenceHelper;
 
 import java.util.WeakHashMap;
 
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.HTTP;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -45,6 +49,9 @@ public interface ApiService {
 
     @POST("student/login")
     Call<UserModel> performLogin(@Body WeakHashMap<String, String> userDetails);
+    @Multipart
+ @POST("student/profile/update")
+    Call<BaseModel> userprofileupdate( @Part MultipartBody.Part file);
 
 
     @GET("student/homeapi")

@@ -364,7 +364,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
                         horizontal_recycler_view.setAdapter(subjectAdapter);
                         teacherrecyclerView.setAdapter(teacherAdapter);
                         favouriterecyclerView.setAdapter(favouriteAdapter);
-                       // setSubscriptionView(response.body().getData().getSubscription().get(0).getBanner_image());
+                       //setSubscriptionView(response.body().getData().getSubscription().get(0).getBanner_image());
 
 
 

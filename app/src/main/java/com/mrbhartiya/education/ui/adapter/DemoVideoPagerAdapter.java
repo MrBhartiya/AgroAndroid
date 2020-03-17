@@ -13,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.HomeModel;
 import com.mrbhartiya.education.ui.activity.VideoDiscription;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class DemoVideoPagerAdapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.item_demo_video, view, false);
         view.addView(imageLayout, 0);
         ImageView tvLabel = imageLayout.findViewById(R.id.demo_video_view);
-        Picasso.get().load(demoVideoList.get(position).getThumbnail()).placeholder(R.color.demo_background_color).into(tvLabel);
+        Picasso.get().load(PreferenceHelper.getBucketUrl()+demoVideoList.get(position).getThumbnail()).placeholder(R.color.demo_background_color).into(tvLabel);
         tvLabel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Perform action on click
