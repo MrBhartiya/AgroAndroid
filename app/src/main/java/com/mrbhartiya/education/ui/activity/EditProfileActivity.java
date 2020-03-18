@@ -53,8 +53,8 @@ import retrofit2.Callback;
 
 public class EditProfileActivity extends BaseActivity implements View.OnClickListener {
     TextView txt_username,txt_useremail,txt_userdob,txt_userclass,txt_userphone,txt_city,txt_userstate;
-CircleImageView circleimageview;
-ImageView img_edtbutton;
+    CircleImageView circleimageview;
+    ImageView img_edtbutton;
     private RequestBody requestBody;
     private File profileFile;
     private MultipartBody.Part multipartBody;
@@ -205,7 +205,7 @@ ImageView img_edtbutton;
 
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos);
                 byte[] imageBytes = baos.toByteArray();
-               String encoded_membercamera = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+                String encoded_membercamera = Base64.encodeToString(imageBytes, Base64.DEFAULT);
                 byte[] decodedString = Base64.decode(encoded_membercamera, Base64.DEFAULT);
                 Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString,
                         0, decodedString.length);
@@ -228,11 +228,11 @@ ImageView img_edtbutton;
 
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos);
                 byte[] imageBytes = baos.toByteArray();
-             String   encoded_membergallery = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+                String   encoded_membergallery = Base64.encodeToString(imageBytes, Base64.DEFAULT);
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 70, baos); // bm is
                 byte[]    photoimage = baos.toByteArray();
-                  circleimageview.setImageBitmap(BitmapFactory.decodeByteArray(photoimage, 0, photoimage.length));
-               String changeImageProfilePicturePath=picturePath;
+                circleimageview.setImageBitmap(BitmapFactory.decodeByteArray(photoimage, 0, photoimage.length));
+                String changeImageProfilePicturePath=picturePath;
                 Cursor returnCursor = getContentResolver().query(selectedImageUri, null,
                         null, null, null);
 
@@ -250,50 +250,50 @@ ImageView img_edtbutton;
                 e.printStackTrace();
                 String s=e.toString();
             }
-    }}
+        }}
 
     private void _callapiforpost(Intent data) {
         try{
 
 
-        Uri selectedImageUri = data.getData();
-        String picturePath = getPath(getApplicationContext(), selectedImageUri);
+            Uri selectedImageUri = data.getData();
+            String picturePath = getPath(getApplicationContext(), selectedImageUri);
 
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
-        final Bitmap photo = bitmap;
-        File file = savebitmap(photo);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Bitmap bitmap = BitmapFactory.decodeFile(picturePath);
+            final Bitmap photo = bitmap;
+            File file = savebitmap(photo);
 
-        requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        multipartBody = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
-        final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Logging in...");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+            requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+            multipartBody = MultipartBody.Part.createFormData("image", file.getName(), requestBody);
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setIndeterminate(true);
+            progressDialog.setMessage("Logging in...");
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.show();
 
-        ApiService apiService = RetrofitClient.createRetrofitService(ApiService.class);
-        Call<BaseModel> call = apiService.userprofileupdate(multipartBody);
-        call.enqueue(new Callback<BaseModel>() {
-            @Override
-            public void onResponse(Call<BaseModel> call, retrofit2.Response<BaseModel> response) {
-                progressDialog.dismiss();
-                if (response.code() == 200) {
-                    Toast.makeText(EditProfileActivity.this, "Profile uploaded successfully..", Toast.LENGTH_SHORT).show();
-finish();
-                } else
-                    Toast.makeText(EditProfileActivity.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
+            ApiService apiService = RetrofitClient.createRetrofitService(ApiService.class);
+            Call<BaseModel> call = apiService.userprofileupdate(multipartBody);
+            call.enqueue(new Callback<BaseModel>() {
+                @Override
+                public void onResponse(Call<BaseModel> call, retrofit2.Response<BaseModel> response) {
+                    progressDialog.dismiss();
+                    if (response.code() == 200) {
+                        Toast.makeText(EditProfileActivity.this, "Profile uploaded successfully..", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else
+                        Toast.makeText(EditProfileActivity.this, "Something went wrong..", Toast.LENGTH_SHORT).show();
 
 
-            }
+                }
 
-            @Override
-            public void onFailure(Call<BaseModel> call, Throwable t) {
-                progressDialog.dismiss();
-                Toast.makeText(EditProfileActivity.this, "Call Failed", Toast.LENGTH_SHORT).show();
+                @Override
+                public void onFailure(Call<BaseModel> call, Throwable t) {
+                    progressDialog.dismiss();
+                    Toast.makeText(EditProfileActivity.this, "Call Failed", Toast.LENGTH_SHORT).show();
 
-            }
-        });
+                }
+            });
         }catch (Exception e)
         {
             String jj=e.toString();
@@ -303,21 +303,21 @@ finish();
     }
 
     public static String getPath(Context context, Uri uri ) {
-            String result = null;
-            String[] proj = { MediaStore.Images.Media.DATA };
-            Cursor cursor = context.getContentResolver( ).query( uri, proj, null, null, null );
-            if(cursor != null){
-                if ( cursor.moveToFirst( ) ) {
-                    int column_index = cursor.getColumnIndexOrThrow( proj[0] );
-                    result = cursor.getString( column_index );
-                }
-                cursor.close( );
+        String result = null;
+        String[] proj = { MediaStore.Images.Media.DATA };
+        Cursor cursor = context.getContentResolver( ).query( uri, proj, null, null, null );
+        if(cursor != null){
+            if ( cursor.moveToFirst( ) ) {
+                int column_index = cursor.getColumnIndexOrThrow( proj[0] );
+                result = cursor.getString( column_index );
             }
-            if(result == null) {
-                result = "Not found";
-            }
-            return result;
+            cursor.close( );
         }
+        if(result == null) {
+            result = "Not found";
+        }
+        return result;
+    }
     private File savebitmap(Bitmap bmp) {
         String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
         OutputStream outStream = null;

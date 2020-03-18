@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.HomeModel;
+import com.mrbhartiya.education.utility.PreferenceHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,8 +40,16 @@ public class FavouriteVideoAdapter extends RecyclerView.Adapter<FavouriteVideoAd
 
     @Override
     public void onBindViewHolder(@NonNull FavouriteVideoAdapter.MyViewHolder holder, final int position) {
-        holder.mItemName.setText(chapterList.get(position).getVideo().getTitle());
-        holder.mItemDesc.setText(chapterList.get(position).getVideo().getVideo_description());
+        if(chapterList.get(position).getVideo()!=null){
+            holder.mItemName.setText(chapterList.get(position).getVideo().getTitle());
+            holder.mItemDesc.setText(chapterList.get(position).getVideo().getVideo_description());
+        }
+        else{
+            holder.mItemName.setText("");
+            holder.mItemDesc.setText("");
+        }
+        Picasso.get().load(PreferenceHelper.getBucketUrl()+chapterList.get(position).getVideo().getThumbnail()).placeholder(R.drawable.recent_video_thumbnail).into(holder.mItemImage);
+
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

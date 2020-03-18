@@ -39,8 +39,16 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, final int position) {
 
         //holder.mSubjectText.setText(favouriteList.get(position).get());
-        String path=PreferenceHelper.getBucketUrl()+favouriteList.get(position).getVideo().getThumbnail();
-        Picasso.get().load(PreferenceHelper.getBucketUrl()+favouriteList.get(position).getVideo().getThumbnail()).fit().into(holder.mSubjectImage);
+        String path;
+        if(favouriteList.get(position).getVideo()!=null){
+            path=PreferenceHelper.getBucketUrl()+favouriteList.get(position).getVideo().getThumbnail();
+
+        }
+        else{
+            path=PreferenceHelper.getBucketUrl();
+
+        }
+        Picasso.get().load(path).fit().into(holder.mSubjectImage);
         holder.linear_subject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

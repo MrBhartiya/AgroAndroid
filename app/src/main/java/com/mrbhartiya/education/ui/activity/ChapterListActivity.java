@@ -41,7 +41,7 @@ public class ChapterListActivity extends BaseActivity implements View.OnClickLis
     private HomeModel.DataBean.SubjectListBean data;
     private TextView mItemName;
     private ChapterListAdapter mChapterAdapter;
-    private List<ChapterModel.DataBean> chapterList = new ArrayList<>();
+    private List<ChapterModel.DataBean.ChapterListBean> chapterList = new ArrayList<>();
     private LinearLayout mLLChapter;
     private TextView mTitle;
     private SearchView mSearchText;
@@ -65,7 +65,7 @@ public class ChapterListActivity extends BaseActivity implements View.OnClickLis
         progressDialog.setCanceledOnTouchOutside(false);
         progressDialog.show();
         ApiService apiService = RetrofitClient.createRetrofitService(ApiService.class);
-        Call<ChapterModel> call = apiService.perfromChapterFetchOperation(data.getSubject_id());
+        Call<ChapterModel> call = apiService.perfromChapterFetchOperation(10);
         call.enqueue(new Callback<ChapterModel>() {
             @Override
             public void onResponse(Call<ChapterModel> call, retrofit2.Response<ChapterModel> response) {
@@ -73,8 +73,8 @@ public class ChapterListActivity extends BaseActivity implements View.OnClickLis
                 if (response.code() == 200) {
                     if (response.body().isStatus()) {
                         chapterList.clear();
-                        for (int i = 0; i < response.body().getData().size(); i++) {
-                            chapterList.add(response.body().getData().get(i));
+                        for (int i = 0; i < response.body().getData().getChapterListBeans().size(); i++) {
+                            chapterList.add(response.body().getData().getChapterListBeans().get(i));
                         }
                         mRecycleChapter.setAdapter(mChapterAdapter);
 

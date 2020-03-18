@@ -48,6 +48,8 @@ public class DemoVideoPagerAdapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.item_demo_video, view, false);
         view.addView(imageLayout, 0);
         ImageView tvLabel = imageLayout.findViewById(R.id.demo_video_view);
+
+
         Picasso.get().load(PreferenceHelper.getBucketUrl()+demoVideoList.get(position).getThumbnail()).placeholder(R.color.demo_background_color).into(tvLabel);
         tvLabel.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

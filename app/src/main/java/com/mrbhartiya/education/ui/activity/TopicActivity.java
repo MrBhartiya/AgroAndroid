@@ -42,7 +42,7 @@ public class TopicActivity extends BaseActivity implements View.OnClickListener,
     private HomeModel.DataBean.SubjectListBean data;
     private TextView mItemName, mTitle;
     private TopicAdapter mTopicAdapter;
-    private List<TopicModel.DataBean> topicBean = new ArrayList<>();
+    private List<TopicModel.DataBean.TopicListBean> topicBean = new ArrayList<>();
     private TextView mtext;
     private LinearLayout mLinearlayout;
     private SearchView mSearchText;
@@ -73,8 +73,8 @@ public class TopicActivity extends BaseActivity implements View.OnClickListener,
                 if (response.code() == 200) {
                     if (response.body().isStatus()) {
                         topicBean.clear();
-                        for (int i = 0; i < response.body().getData().size(); i++)
-                            topicBean.add(response.body().getData().get(i));
+                        for (int i = 0; i < response.body().getData().getTopic().size(); i++)
+                            topicBean.add(response.body().getData().getTopic().get(i));
                         mRecycleChapter.setAdapter(mTopicAdapter);
 
 
@@ -199,8 +199,8 @@ public class TopicActivity extends BaseActivity implements View.OnClickListener,
         intent.putExtra("notes_url", topicBean.get(position).getThumbnail());
         intent.putExtra("video_name", topicBean.get(position).getVideo_name());
         intent.putExtra("video_id", topicBean.get(position).getVideo_id());
-        intent.putExtra("isLike", topicBean.get(position).isIsLiked());
-        intent.putExtra("isFavourited", topicBean.get(position).isIsFavourited());
+       // intent.putExtra("isLike", topicBean.get(position).isIsLiked());
+       // intent.putExtra("isFavourited", topicBean.get(position).isIsFavourited());
         startActivity(intent);
     }
 

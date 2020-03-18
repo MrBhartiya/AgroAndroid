@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.TopicModel;
+import com.mrbhartiya.education.utility.PreferenceHelper;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -19,10 +20,10 @@ import java.util.List;
 
 public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyViewHolder> {
 
-    private List<TopicModel.DataBean> topicBean = new ArrayList<>();
+    private List<TopicModel.DataBean.TopicListBean> topicBean = new ArrayList<>();
     private onItemClick onItemClick;
 
-    public TopicAdapter(List<TopicModel.DataBean> topicBean, onItemClick homeActivity) {
+    public TopicAdapter(List<TopicModel.DataBean.TopicListBean> topicBean, onItemClick homeActivity) {
         this.topicBean = topicBean;
         this.onItemClick = homeActivity;
 
@@ -38,9 +39,9 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
-        holder.mItemName.setText(topicBean.get(position).getVideo_name());
+        holder.mItemName.setText(topicBean.get(position).getChapter_name());
         holder.mItemDesc.setText(topicBean.get(position).getDescription());
-        Picasso.get().load(topicBean.get(position).getThumbnail()).into(holder.mItemImage);
+        Picasso.get().load(PreferenceHelper.getBucketUrl()+topicBean.get(position).getThumbnail()).into(holder.mItemImage);
 
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +60,7 @@ public class TopicAdapter extends RecyclerView.Adapter<TopicAdapter.MyViewHolder
         public void onItemClickListener(int position);
     }
 
-    public void updateList(List<TopicModel.DataBean> topicList) {
+    public void updateList(List<TopicModel.DataBean.TopicListBean> topicList) {
         this.topicBean = topicList;
         notifyDataSetChanged();
     }

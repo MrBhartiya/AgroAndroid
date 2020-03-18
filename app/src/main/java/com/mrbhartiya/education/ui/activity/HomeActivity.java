@@ -454,7 +454,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void onFavouriteItemClick(int position) {
-        Intent intent = new Intent(this, VideoDiscription.class);
+        /*Intent intent = new Intent(this, VideoDiscription.class);
         intent.putExtra("id", favouriteVideosBeans.get(position).getChapter_id());
         intent.putExtra("url", PreferenceHelper.getBucketUrl()+favouriteVideosBeans.get(position).getVideo_url());
         intent.putExtra("description", favouriteVideosBeans.get(position).getDescription());
@@ -462,6 +462,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener, 
         intent.putExtra("thumbnail", PreferenceHelper.getBucketUrl()+favouriteVideosBeans.get(position).getThumbnail());
         intent.putExtra("notes_url", PreferenceHelper.getBucketUrl()+favouriteVideosBeans.get(position).getVideo_notes_url());
         intent.putExtra("video_name", favouriteVideosBeans.get(position).getVideo_name());
+        intent.putExtra("isFavourited", true);
+        startActivity(intent);*/
+        Intent intent = new Intent(this, VideoDiscription.class);
+        intent.putExtra("id", favouriteVideosBeans.get(position).getChapter_id());
+        intent.putExtra("url", favouriteVideosBeans.get(position).getVideo().getVideo_url());
+        intent.putExtra("description", favouriteVideosBeans.get(position).getVideo().getVideo_description());
+        intent.putExtra("likes", favouriteVideosBeans.get(position).getVideo_like());
+        intent.putExtra("thumbnail", favouriteVideosBeans.get(position).getThumbnail());
+        intent.putExtra("notes_url", favouriteVideosBeans.get(position).getVideo().getDocument_url());
+        intent.putExtra("video_name", favouriteVideosBeans.get(position).getVideo().getTitle());
+        intent.putExtra("video_id", favouriteVideosBeans.get(position).getVideo().getVideo_id());
         intent.putExtra("isFavourited", true);
         startActivity(intent);
     }

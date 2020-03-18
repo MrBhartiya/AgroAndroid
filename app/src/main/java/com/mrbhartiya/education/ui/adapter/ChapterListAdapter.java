@@ -12,16 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.mrbhartiya.education.R;
 import com.mrbhartiya.education.model.ChapterModel;
+import com.mrbhartiya.education.utility.PreferenceHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.MyViewHolder> {
 
-    private List<ChapterModel.DataBean> chapterList = new ArrayList<>();
+    private List<ChapterModel.DataBean.ChapterListBean> chapterList = new ArrayList<>();
     private onItemClick onItemClick;
 
-    public ChapterListAdapter(List<ChapterModel.DataBean> chapterList, onItemClick homeActivity) {
+    public ChapterListAdapter(List<ChapterModel.DataBean.ChapterListBean> chapterList, onItemClick homeActivity) {
         this.chapterList = chapterList;
         this.onItemClick = homeActivity;
 
@@ -38,7 +40,8 @@ public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
         holder.mItemName.setText(chapterList.get(position).getChapter_name());
-        holder.mItemDesc.setText(chapterList.get(position).getChapter_description());
+        holder.mItemDesc.setText(chapterList.get(position).getDescription());
+        Picasso.get().load(PreferenceHelper.getBucketUrl()+chapterList.get(position).getThumbnail()).fit().placeholder(R.drawable.recent_video_thumbnail).into(holder.mItemImage);
         holder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +60,7 @@ public class ChapterListAdapter extends RecyclerView.Adapter<ChapterListAdapter.
         public void onItemClickListener(int position);
     }
 
-    public void updateList(List<ChapterModel.DataBean> chapterList) {
+    public void updateList(List<ChapterModel.DataBean.ChapterListBean> chapterList) {
         this.chapterList = chapterList;
         notifyDataSetChanged();
     }

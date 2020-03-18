@@ -226,6 +226,7 @@ public class HomeModel {
                 }
             };
             private String class_id;
+            private  int id;
             private String subject_name;
             private String medium;
             private String color_code;
@@ -331,9 +332,18 @@ public class HomeModel {
                 dest.writeString(this.medium);
                 dest.writeString(this.color_code);
                 dest.writeString(this.icons);
+                dest.writeInt(this.id);
                 dest.writeString(this.created_timestamp);
                 dest.writeString(this.updated_timestamp);
                 dest.writeByte(this.delete_flag ? (byte) 1 : (byte) 0);
+            }
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
             }
 
             protected SubjectListBean(Parcel in) {
@@ -342,6 +352,7 @@ public class HomeModel {
                 this.subject_name = in.readString();
                 this.medium = in.readString();
                 this.color_code = in.readString();
+                this.id = in.readInt();
                 this.icons = in.readString();
                 this.created_timestamp = in.readString();
                 this.updated_timestamp = in.readString();
@@ -366,36 +377,69 @@ public class HomeModel {
                     return new DemoVideoListBean[size];
                 }
             };
-            private String chapter_id;
-            private String video_name;
-            private String Video_url;
-            private String video_notes_url;
+
+         /*   id": 11,
+                    "video_id": "2f9e4K",
+                    "topic_id": 17,
+                    "teacher_id": 1,
+                    "title": "esdrftgyhj",
+                    "type": "demo",
+                    "video_url": "10/Hindi/Tense/future/video/1584377810SampleVideo_1280x720_1mb.mp4",
+                    "document_url": "10/Hindi/Tense/future/document/1584377810sample (1).pdf",
+                    "video_description": "edrftyhuj",
+                    "document_description": "wsedrftg",
+                    "created_at": "2020-03-16 16:56:51",
+                    "updated_at": "2020-03-16 16:56:51",
+                    "thumbnail": "10/Hindi/Tense/future/document/1584377810user1.png",
+                    "fav": 1,
+                    "like": 1*/
+         private String chapter_id;
+            private String title;
+            private String video_url;
+            private String document_url;
             private int video_like;
             private String thumbnail;
-            /**
-             * video_id : MRV001
-             * chapter_id : MRC001
-             * video_name : Quadratic Equations(Introduction)
-             * Video_url : https://mrb-data.s3.ap-south-1.amazonaws.com/videos/1+Quadratic+Equations+Introduction.mp4
-             * video_notes_url : https://mrb-data.s3.ap-south-1.amazonaws.com/notes/1+Quadratic+Equations+(Introduction).pdf
-             * video_like : 20
-             * thumbnail : https://mrb-data.s3.ap-south-1.amazonaws.com/video_thumbnail/ezgif-4-6001e08ecd3b.jpg
-             * isdemovideo : true
-             * description : demo description Quadratic Equations(Introduction)
-             * created_timestamp : 1575435367
-             * updated_timestamp : 1575435367
-             * delete_flag : false
-             * isLiked : false
-             * isFavourited : false
-             */
-
             private String video_id;
-            private String description;
+            private String video_description;
             private String created_timestamp;
             private String updated_timestamp;
             private boolean delete_flag;
             private boolean isLiked;
             private boolean isFavourited;
+            private int like;
+            private int fav;
+
+            public boolean isLiked() {
+                return isLiked;
+            }
+
+            public void setLiked(boolean liked) {
+                isLiked = liked;
+            }
+
+            public boolean isFavourited() {
+                return isFavourited;
+            }
+
+            public void setFavourited(boolean favourited) {
+                isFavourited = favourited;
+            }
+
+            public int getLike() {
+                return like;
+            }
+
+            public void setLike(int like) {
+                this.like = like;
+            }
+
+            public int getFav() {
+                return fav;
+            }
+
+            public void setFav(int fav) {
+                this.fav = fav;
+            }
 
             public String getVideo_id() {
                 return video_id;
@@ -414,27 +458,27 @@ public class HomeModel {
             }
 
             public String getVideo_name() {
-                return video_name;
+                return title;
             }
 
             public void setVideo_name(String video_name) {
-                this.video_name = video_name;
+                this.title = video_name;
             }
 
             public String getVideo_url() {
-                return Video_url;
+                return video_url;
             }
 
             public void setVideo_url(String Video_url) {
-                this.Video_url = Video_url;
+                this.video_url = Video_url;
             }
 
             public String getVideo_notes_url() {
-                return video_notes_url;
+                return document_url;
             }
 
             public void setVideo_notes_url(String video_notes_url) {
-                this.video_notes_url = video_notes_url;
+                this.document_url = video_notes_url;
             }
 
             public int getVideo_like() {
@@ -459,11 +503,11 @@ public class HomeModel {
             }
 
             public String getDescription() {
-                return description;
+                return video_description;
             }
 
             public void setDescription(String description) {
-                this.description = description;
+                this.video_description = description;
             }
 
             public String getCreated_timestamp() {
@@ -485,15 +529,17 @@ public class HomeModel {
             protected DemoVideoListBean(Parcel in) {
                 this.video_id = in.readString();
                 this.chapter_id = in.readString();
-                this.video_name = in.readString();
-                this.Video_url = in.readString();
-                this.video_notes_url = in.readString();
+                this.title = in.readString();
+                this.video_url = in.readString();
+                this.document_url = in.readString();
                 this.video_like = in.readInt();
                 this.thumbnail = in.readString();
                 this.isdemovideo = in.readByte() != 0;
-                this.description = in.readString();
+                this.video_description = in.readString();
                 this.created_timestamp = in.readString();
                 this.updated_timestamp = in.readString();
+                this.like = in.readInt();
+                this.fav = in.readInt();
                 this.delete_flag = in.readByte() != 0;
                 this.isLiked = in.readByte() != 0;
                 this.isFavourited = in.readByte() != 0;
@@ -540,13 +586,15 @@ public class HomeModel {
             public void writeToParcel(Parcel dest, int flags) {
                 dest.writeString(this.video_id);
                 dest.writeString(this.chapter_id);
-                dest.writeString(this.video_name);
-                dest.writeString(this.Video_url);
-                dest.writeString(this.video_notes_url);
+                dest.writeString(this.title);
+                dest.writeString(this.video_url);
+                dest.writeString(this.document_url);
                 dest.writeInt(this.video_like);
+                dest.writeInt(this.like);
+                dest.writeInt(this.fav);
                 dest.writeString(this.thumbnail);
                 dest.writeByte(this.isdemovideo ? (byte) 1 : (byte) 0);
-                dest.writeString(this.description);
+                dest.writeString(this.video_description);
                 dest.writeString(this.created_timestamp);
                 dest.writeString(this.updated_timestamp);
                 dest.writeByte(this.delete_flag ? (byte) 1 : (byte) 0);

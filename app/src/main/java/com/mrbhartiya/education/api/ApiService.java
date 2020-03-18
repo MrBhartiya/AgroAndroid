@@ -29,6 +29,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -58,17 +59,17 @@ public interface ApiService {
     Call<HomeModel> performHome();
 
 
-    @GET("subject/list")
-    Call<ChapterModel> perfromChapterFetchOperation(@Query("subject_id") String userClass);
+    @GET("subject/getChapter/{id}")
+    Call<ChapterModel> perfromChapterFetchOperation(@Path("id") int userClass);
 
 
     @GET("topic/list/")
     Call<TopicModel> perfromVideoFetchOperation(@Query("chapter_id") String userClass);
 
-    @POST("likeAndComment")
+    @POST("likeVideo")
     Call<BaseResponse> performVideoLike(@Body WeakHashMap<String, String> param);
 
-    @POST("favourite")
+    @POST("favVideo")
     Call<VideoOperation> performVideoFavourite( @Body WeakHashMap<String, String> param);
 
 
